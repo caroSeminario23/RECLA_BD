@@ -101,9 +101,11 @@ CREATE TABLE Elem_logro
   img_link  text        NOT NULL UNIQUE,
   ptos_comp int         NOT NULL,
   coleccion varchar(70) NOT NULL,
-  tipo      int         NOT NULL DEFAULT 0: insignia, 1: sticker, 2: mision,
+  tipo      int         NOT NULL,
   PRIMARY KEY (id_elem)
 );
+
+COMMENT ON COLUMN Elem_logro.tipo IS '0: insignia, 1: sticker, 2: mision';
 
 CREATE TABLE Insignia
 (
@@ -140,7 +142,7 @@ CREATE TABLE Mascota
   PRIMARY KEY (id_mascota)
 );
 
-COMMENT ON TABLE Mascota IS '"Cartulín"';
+COMMENT ON TABLE Mascota IS 'Cartulín';
 
 COMMENT ON COLUMN Mascota.estado_animo IS '0: alegre, 1: triste, 2: molesto';
 
