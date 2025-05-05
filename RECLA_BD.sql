@@ -1,73 +1,91 @@
 
-CREATE TABLE Ben_Per
+CREATE TABLE Ben_adquirido
 (
-  id_pers  int       NOT NULL,
-  id_benef int       NOT NULL,
-  fec_obt  timestamp NOT NULL,
-  PRIMARY KEY (id_pers, id_benef)
+  id_ben_ad int       NOT NULL GENERATED ALWAYS AS IDENTITY,
+  id_pers   int       NOT NULL,
+  id_benef  int       NOT NULL,
+  fec_adqui timestamp NOT NULL,
+  PRIMARY KEY (id_ben_ad)
+);
+
+CREATE TABLE Benef_prod
+(
+  id_bprod   int         NOT NULL GENERATED ALWAYS AS IDENTITY,
+  id_benef   int         NOT NULL,
+  cantidad   int         NOT NULL,
+  unidad     varchar(30) NOT NULL,
+  ptos_ganar int         NOT NULL,
+  PRIMARY KEY (id_bprod)
+);
+
+CREATE TABLE Benef_ptos
+(
+  id_bptos   int NOT NULL GENERATED ALWAYS AS IDENTITY,
+  ptos_canje int NOT NULL,
+  id_benef   int NOT NULL,
+  PRIMARY KEY (id_bptos)
+);
+
+CREATE TABLE Benef_ptos_accion
+(
+  id_baccion   int          NOT NULL GENERATED ALWAYS AS IDENTITY,
+  ac_marketing varchar(500) NOT NULL,
+  id_benef     int          NOT NULL,
+  PRIMARY KEY (id_baccion)
 );
 
 CREATE TABLE Beneficio
 (
   id_benef int          NOT NULL GENERATED ALWAYS AS IDENTITY,
+  id_inst  int          NOT NULL,
   titulo   varchar(20)  NOT NULL UNIQUE,
   descrip  varchar(150) NOT NULL,
-  tipo     boolean      NOT NULL,
-  id_inst  int          NOT NULL,
+  estado   boolean      NOT NULL DEFAULT 0,
+  tipo     int          NOT NULL,
   PRIMARY KEY (id_benef)
 );
 
-COMMENT ON COLUMN Beneficio.tipo IS '0: m prima, 1: servicio';
+COMMENT ON COLUMN Beneficio.estado IS '0: activo: 1: inactivo';
+
+COMMENT ON COLUMN Beneficio.tipo IS '0: producto, 1: ptos, 2: accion';
 
 CREATE TABLE Certificado
 (
-  id_cert   int        NOT NULL GENERATED ALWAYS AS IDENTITY,
-  id_mision int        NOT NULL,
-  id_pers   int        NOT NULL,
-  fec_emis  timestamp  NOT NULL,
-  cod_val   varchar(8) NOT NULL UNIQUE,
-  PRIMARY KEY (id_cert)
+  id_mision   int          NOT NULL,
+  id_pers     int          NOT NULL,
+  titulo      varchar(50)  NOT NULL,
+  descripcion varchar(200) NOT NULL,
+  fec_emis    timestamp    NOT NULL,
+  cod_val     varchar(8)   NOT NULL UNIQUE,
+  PRIMARY KEY (id_mision, id_pers)
 );
 
 CREATE TABLE Chat
 (
   id_chat   int       NOT NULL GENERATED ALWAYS AS IDENTITY,
   fec_creac timestamp NOT NULL,
+  id_part1  int       NOT NULL,
+  id_part2  int       NOT NULL,
   PRIMARY KEY (id_chat)
 );
 
 CREATE TABLE Comentario
 (
   id_coment int          NOT NULL GENERATED ALWAYS AS IDENTITY,
-  contenido varchar(250) NOT NULL,
   id_pers   int          NOT NULL,
   id_pub    int          NOT NULL,
+  contenido varchar(250) NOT NULL,
+  fec_reg   timestamp    NOT NULL,
   PRIMARY KEY (id_coment)
 );
 
 CREATE TABLE Compra
 (
-  id_compra int       NOT NULL GENERATED ALWAYS AS IDENTITY,
-  id_pers   int       NOT NULL,
-  fec_comp  timestamp NOT NULL,
+  id_compra    int       NOT NULL GENERATED ALWAYS AS IDENTITY,
+  id_pub       int       NOT NULL,
+  id_comprador int       NOT NULL,
+  fec_comp     timestamp NOT NULL,
   PRIMARY KEY (id_compra)
-);
-
-CREATE TABLE Condicion
-(
-  id_cond  int          NOT NULL,
-  descrip  varchar(100) NOT NULL,
-  id_benef int          NOT NULL,
-  PRIMARY KEY (id_cond)
-);
-
-CREATE TABLE Detal_Prod
-(
-  id_detal  int         NOT NULL GENERATED ALWAYS AS IDENTITY,
-  desc_prod varchar(30) NOT NULL,
-  cantidad  int         NOT NULL,
-  id_benef  int         NOT NULL,
-  PRIMARY KEY (id_detal)
 );
 
 CREATE TABLE Distrito
@@ -77,36 +95,54 @@ CREATE TABLE Distrito
   PRIMARY KEY (id_dist)
 );
 
-CREATE TABLE Elem_gam_vis
+CREATE TABLE Elem_logro
 (
-  id_elem int         NOT NULL GENERATED ALWAYS AS IDENTITY,
-  nombre  varchar(20) NOT NULL UNIQUE,
+  id_elem   int         NOT NULL GENERATED ALWAYS AS IDENTITY,
+  img_link  text        NOT NULL UNIQUE,
+  ptos_comp int         NOT NULL,
+  coleccion varchar(70) NOT NULL,
+  tipo      int         NOT NULL DEFAULT 0: insignia, 1: sticker, 2: mision,
   PRIMARY KEY (id_elem)
 );
 
-CREATE TABLE Elem_logro
+CREATE TABLE Insignia
 (
-  id_el_log   int NOT NULL GENERATED ALWAYS AS IDENTITY,
-  id_pers     int NOT NULL,
-  id_tip_elem int NOT NULL,
-  PRIMARY KEY (id_el_log)
-);
-
-CREATE TABLE Hist_chat
-(
-  id_chat      int NOT NULL GENERATED ALWAYS AS IDENTITY,
-  id_hist_chat int NOT NULL,
-  PRIMARY KEY (id_hist_chat)
+  id_insig int         NOT NULL GENERATED ALWAYS AS IDENTITY,
+  nombre   varchar(70) NOT NULL,
+  id_elem  int         NOT NULL,
+  PRIMARY KEY (id_insig)
 );
 
 CREATE TABLE Institucion
 (
   id_inst int         NOT NULL GENERATED ALWAYS AS IDENTITY,
-  nombre  varchar(30) NOT NULL,
-  ruc     varchar(11) NOT NULL UNIQUE,
   id_user int         NOT NULL,
+  nombre  varchar(30) NOT NULL UNIQUE,
+  ruc     varchar(11) NOT NULL UNIQUE,
   PRIMARY KEY (id_inst)
 );
+
+CREATE TABLE Logro_obt
+(
+  id_logro  int       NOT NULL GENERATED ALWAYS AS IDENTITY,
+  id_elem   int       NOT NULL,
+  id_pers   int       NOT NULL,
+  fec_logro timestamp NOT NULL,
+  PRIMARY KEY (id_logro)
+);
+
+CREATE TABLE Mascota
+(
+  id_mascota   int NOT NULL GENERATED ALWAYS AS IDENTITY,
+  experiencia  int NOT NULL,
+  estado_animo int NOT NULL,
+  id_pers      int NOT NULL,
+  PRIMARY KEY (id_mascota)
+);
+
+COMMENT ON TABLE Mascota IS '"Cartulín"';
+
+COMMENT ON COLUMN Mascota.estado_animo IS '0: alegre, 1: triste, 2: molesto';
 
 CREATE TABLE Material
 (
@@ -121,84 +157,54 @@ CREATE TABLE Mensaje
   contenido    varchar(300) NOT NULL,
   fec_envío    timestamp    NOT NULL,
   id_hist_chat int          NOT NULL,
+  id_chat      int          NOT NULL,
   PRIMARY KEY (id_msg)
 );
 
 CREATE TABLE Mision
 (
-  id_mision  int          NOT NULL GENERATED ALWAYS AS IDENTITY,
-  nombre     varchar(50)  NOT NULL UNIQUE,
-  descrip    varchar(200) NOT NULL,
-  fec_inicio date         NOT NULL,
-  fec_fin    date         NOT NULL,
+  id_mision int          NOT NULL GENERATED ALWAYS AS IDENTITY,
+  id_elem   int          NOT NULL,
+  titulo    varchar(50)  NOT NULL UNIQUE,
+  descrip   varchar(200) NOT NULL,
   PRIMARY KEY (id_mision)
 );
 
-CREATE TABLE N_ptos_app
+CREATE TABLE Mision_temp
 (
-  id_pt_per int NOT NULL GENERATED ALWAYS AS IDENTITY,
-  id_pers   int NOT NULL,
-  cantidad  int NOT NULL,
-  PRIMARY KEY (id_pt_per)
-);
-
-CREATE TABLE N_ptos_exp
-(
-  id_pt_exp int NOT NULL GENERATED ALWAYS AS IDENTITY,
-  id_pers   int NOT NULL,
-  cantidad  int NOT NULL,
-  PRIMARY KEY (id_pt_exp)
-);
-
-CREATE TABLE N_ptos_inst
-(
-  id_pers   int NOT NULL,
-  id_pt_ins int NOT NULL,
-  cantidad  int NOT NULL,
-  PRIMARY KEY (id_pers, id_pt_ins)
+  id_mtemp   int  NOT NULL GENERATED ALWAYS AS IDENTITY,
+  id_mision  int  NOT NULL,
+  fec_inicio date NOT NULL,
+  fec_fin    date NOT NULL,
+  PRIMARY KEY (id_mtemp)
 );
 
 CREATE TABLE Notificacion
 (
   id_not    int         NOT NULL GENERATED ALWAYS AS IDENTITY,
-  id_compra int         NOT NULL,
   msg       varchar(40) NOT NULL,
+  id_compra int         NOT NULL,
   PRIMARY KEY (id_not)
-);
-
-CREATE TABLE Part_chat
-(
-  id_part_chat int NOT NULL GENERATED ALWAYS AS IDENTITY,
-  max_part     int NOT NULL DEFAULT 2,
-  id_chat      int NOT NULL,
-  id_pers      int NOT NULL,
-  PRIMARY KEY (id_part_chat)
 );
 
 CREATE TABLE Persona
 (
   id_pers  int          NOT NULL GENERATED ALWAYS AS IDENTITY,
+  id_user  int          NOT NULL,
   nom_priv varchar(70)  NOT NULL,
   apellido varchar(100) NOT NULL,
   anio_nac date         NOT NULL,
   nom_pub  varchar(20)  NOT NULL UNIQUE,
   id_dist  int          NOT NULL,
-  id_user  int          NOT NULL,
   PRIMARY KEY (id_pers)
-);
-
-CREATE TABLE Prod_compra
-(
-  id_pub    int NOT NULL,
-  id_compra int NOT NULL,
-  PRIMARY KEY (id_pub, id_compra)
 );
 
 CREATE TABLE Ptos_inst
 (
-  id_pt_ins int NOT NULL GENERATED ALWAYS AS IDENTITY,
-  id_inst   int NOT NULL,
-  PRIMARY KEY (id_pt_ins)
+  id_tp   int NOT NULL,
+  id_inst int NOT NULL,
+  ptos    int NOT NULL DEFAULT 0,
+  PRIMARY KEY (id_tp, id_inst)
 );
 
 CREATE TABLE Pub_Mat
@@ -211,11 +217,11 @@ CREATE TABLE Pub_Mat
 CREATE TABLE Publicacion
 (
   id_pub    int          NOT NULL GENERATED ALWAYS AS IDENTITY,
+  id_vend   int          NOT NULL,
   fec_reg   timestamp    NOT NULL,
   foto_link text         NOT NULL,
   descrip   varchar(250) NOT NULL,
   tipo      boolean      NOT NULL,
-  id_pers   int          NOT NULL,
   estado    boolean      NOT NULL,
   puntaje   int          NOT NULL,
   PRIMARY KEY (id_pub)
@@ -225,14 +231,31 @@ COMMENT ON COLUMN Publicacion.tipo IS '0: producto, 1: material';
 
 COMMENT ON COLUMN Publicacion.estado IS '0: disponible, 1: comprado';
 
-CREATE TABLE Tipo_elem
+CREATE TABLE Racha
 (
-  id_tip_elem int          NOT NULL GENERATED ALWAYS AS IDENTITY,
-  id_elem     int          NOT NULL,
-  nombre      varchar(40)  NOT NULL UNIQUE,
-  objetivo    varchar(100) NOT NULL,
-  ptos_nec    int          NOT NULL,
-  PRIMARY KEY (id_tip_elem)
+  id_racha int NOT NULL GENERATED ALWAYS AS IDENTITY,
+  id_pers  int NOT NULL,
+  n_dias   int NOT NULL DEFAULT 0,
+  PRIMARY KEY (id_racha)
+);
+
+CREATE TABLE Sticker
+(
+  id_sticker int NOT NULL GENERATED ALWAYS AS IDENTITY,
+  duracion   int NOT NULL,
+  id_elem    int NOT NULL,
+  PRIMARY KEY (id_sticker)
+);
+
+COMMENT ON COLUMN Sticker.duracion IS 'dias';
+
+CREATE TABLE Tabla_puntos
+(
+  id_tp    int NOT NULL GENERATED ALWAYS AS IDENTITY,
+  id_pers  int NOT NULL,
+  ptos_exp int NOT NULL DEFAULT 0,
+  ptos_app int NOT NULL DEFAULT 0,
+  PRIMARY KEY (id_tp)
 );
 
 CREATE TABLE Usuario
@@ -259,26 +282,6 @@ ALTER TABLE Institucion
     FOREIGN KEY (id_user)
     REFERENCES Usuario (id_user);
 
-ALTER TABLE Part_chat
-  ADD CONSTRAINT FK_Chat_TO_Part_chat
-    FOREIGN KEY (id_chat)
-    REFERENCES Chat (id_chat);
-
-ALTER TABLE Hist_chat
-  ADD CONSTRAINT FK_Chat_TO_Hist_chat
-    FOREIGN KEY (id_chat)
-    REFERENCES Chat (id_chat);
-
-ALTER TABLE Part_chat
-  ADD CONSTRAINT FK_Persona_TO_Part_chat
-    FOREIGN KEY (id_pers)
-    REFERENCES Persona (id_pers);
-
-ALTER TABLE Mensaje
-  ADD CONSTRAINT FK_Hist_chat_TO_Mensaje
-    FOREIGN KEY (id_hist_chat)
-    REFERENCES Hist_chat (id_hist_chat);
-
 ALTER TABLE Pub_Mat
   ADD CONSTRAINT FK_Publicacion_TO_Pub_Mat
     FOREIGN KEY (id_pub)
@@ -291,7 +294,7 @@ ALTER TABLE Pub_Mat
 
 ALTER TABLE Publicacion
   ADD CONSTRAINT FK_Persona_TO_Publicacion
-    FOREIGN KEY (id_pers)
+    FOREIGN KEY (id_vend)
     REFERENCES Persona (id_pers);
 
 ALTER TABLE Comentario
@@ -304,97 +307,127 @@ ALTER TABLE Comentario
     FOREIGN KEY (id_pub)
     REFERENCES Publicacion (id_pub);
 
-ALTER TABLE Condicion
-  ADD CONSTRAINT FK_Beneficio_TO_Condicion
-    FOREIGN KEY (id_benef)
-    REFERENCES Beneficio (id_benef);
-
-ALTER TABLE Detal_Prod
-  ADD CONSTRAINT FK_Beneficio_TO_Detal_Prod
+ALTER TABLE Benef_prod
+  ADD CONSTRAINT FK_Beneficio_TO_Benef_prod
     FOREIGN KEY (id_benef)
     REFERENCES Beneficio (id_benef);
 
 ALTER TABLE Compra
   ADD CONSTRAINT FK_Persona_TO_Compra
-    FOREIGN KEY (id_pers)
-    REFERENCES Persona (id_pers);
-
-ALTER TABLE Beneficio
-  ADD CONSTRAINT FK_Institucion_TO_Beneficio
-    FOREIGN KEY (id_inst)
-    REFERENCES Institucion (id_inst);
-
-ALTER TABLE Ptos_inst
-  ADD CONSTRAINT FK_Institucion_TO_Ptos_inst
-    FOREIGN KEY (id_inst)
-    REFERENCES Institucion (id_inst);
-
-ALTER TABLE N_ptos_inst
-  ADD CONSTRAINT FK_Persona_TO_N_ptos_inst
-    FOREIGN KEY (id_pers)
-    REFERENCES Persona (id_pers);
-
-ALTER TABLE N_ptos_inst
-  ADD CONSTRAINT FK_Ptos_inst_TO_N_ptos_inst
-    FOREIGN KEY (id_pt_ins)
-    REFERENCES Ptos_inst (id_pt_ins);
-
-ALTER TABLE N_ptos_app
-  ADD CONSTRAINT FK_Persona_TO_N_ptos_app
-    FOREIGN KEY (id_pers)
-    REFERENCES Persona (id_pers);
-
-ALTER TABLE N_ptos_exp
-  ADD CONSTRAINT FK_Persona_TO_N_ptos_exp
-    FOREIGN KEY (id_pers)
+    FOREIGN KEY (id_comprador)
     REFERENCES Persona (id_pers);
 
 ALTER TABLE Certificado
-  ADD CONSTRAINT FK_Mision_TO_Certificado
+  ADD CONSTRAINT FK_Mision_temp_TO_Certificado
     FOREIGN KEY (id_mision)
-    REFERENCES Mision (id_mision);
+    REFERENCES Mision_temp (id_mtemp);
 
 ALTER TABLE Certificado
   ADD CONSTRAINT FK_Persona_TO_Certificado
     FOREIGN KEY (id_pers)
     REFERENCES Persona (id_pers);
 
-ALTER TABLE Tipo_elem
-  ADD CONSTRAINT FK_Elem_gam_vis_TO_Tipo_elem
-    FOREIGN KEY (id_elem)
-    REFERENCES Elem_gam_vis (id_elem);
-
-ALTER TABLE Elem_logro
-  ADD CONSTRAINT FK_Persona_TO_Elem_logro
+ALTER TABLE Tabla_puntos
+  ADD CONSTRAINT FK_Persona_TO_Tabla_puntos
     FOREIGN KEY (id_pers)
     REFERENCES Persona (id_pers);
 
-ALTER TABLE Elem_logro
-  ADD CONSTRAINT FK_Tipo_elem_TO_Elem_logro
-    FOREIGN KEY (id_tip_elem)
-    REFERENCES Tipo_elem (id_tip_elem);
+ALTER TABLE Ptos_inst
+  ADD CONSTRAINT FK_Institucion_TO_Ptos_inst
+    FOREIGN KEY (id_inst)
+    REFERENCES Institucion (id_inst);
+
+ALTER TABLE Ptos_inst
+  ADD CONSTRAINT FK_Tabla_puntos_TO_Ptos_inst
+    FOREIGN KEY (id_tp)
+    REFERENCES Tabla_puntos (id_tp);
+
+ALTER TABLE Chat
+  ADD CONSTRAINT FK_Persona_TO_Chat
+    FOREIGN KEY (id_part1)
+    REFERENCES Persona (id_pers);
+
+ALTER TABLE Chat
+  ADD CONSTRAINT FK_Persona_TO_Chat1
+    FOREIGN KEY (id_part2)
+    REFERENCES Persona (id_pers);
+
+ALTER TABLE Mensaje
+  ADD CONSTRAINT FK_Chat_TO_Mensaje
+    FOREIGN KEY (id_chat)
+    REFERENCES Chat (id_chat);
+
+ALTER TABLE Compra
+  ADD CONSTRAINT FK_Publicacion_TO_Compra
+    FOREIGN KEY (id_pub)
+    REFERENCES Publicacion (id_pub);
+
+ALTER TABLE Racha
+  ADD CONSTRAINT FK_Persona_TO_Racha
+    FOREIGN KEY (id_pers)
+    REFERENCES Persona (id_pers);
+
+ALTER TABLE Insignia
+  ADD CONSTRAINT FK_Elem_logro_TO_Insignia
+    FOREIGN KEY (id_elem)
+    REFERENCES Elem_logro (id_elem);
+
+ALTER TABLE Sticker
+  ADD CONSTRAINT FK_Elem_logro_TO_Sticker
+    FOREIGN KEY (id_elem)
+    REFERENCES Elem_logro (id_elem);
+
+ALTER TABLE Mision_temp
+  ADD CONSTRAINT FK_Mision_TO_Mision_temp
+    FOREIGN KEY (id_mision)
+    REFERENCES Mision (id_mision);
+
+ALTER TABLE Mascota
+  ADD CONSTRAINT FK_Persona_TO_Mascota
+    FOREIGN KEY (id_pers)
+    REFERENCES Persona (id_pers);
+
+ALTER TABLE Benef_ptos
+  ADD CONSTRAINT FK_Beneficio_TO_Benef_ptos
+    FOREIGN KEY (id_benef)
+    REFERENCES Beneficio (id_benef);
+
+ALTER TABLE Benef_ptos_accion
+  ADD CONSTRAINT FK_Beneficio_TO_Benef_ptos_accion
+    FOREIGN KEY (id_benef)
+    REFERENCES Beneficio (id_benef);
+
+ALTER TABLE Beneficio
+  ADD CONSTRAINT FK_Institucion_TO_Beneficio
+    FOREIGN KEY (id_inst)
+    REFERENCES Institucion (id_inst);
+
+ALTER TABLE Ben_adquirido
+  ADD CONSTRAINT FK_Persona_TO_Ben_adquirido
+    FOREIGN KEY (id_pers)
+    REFERENCES Persona (id_pers);
+
+ALTER TABLE Ben_adquirido
+  ADD CONSTRAINT FK_Beneficio_TO_Ben_adquirido
+    FOREIGN KEY (id_benef)
+    REFERENCES Beneficio (id_benef);
+
+ALTER TABLE Mision
+  ADD CONSTRAINT FK_Elem_logro_TO_Mision
+    FOREIGN KEY (id_elem)
+    REFERENCES Elem_logro (id_elem);
+
+ALTER TABLE Logro_obt
+  ADD CONSTRAINT FK_Elem_logro_TO_Logro_obt
+    FOREIGN KEY (id_elem)
+    REFERENCES Elem_logro (id_elem);
+
+ALTER TABLE Logro_obt
+  ADD CONSTRAINT FK_Persona_TO_Logro_obt
+    FOREIGN KEY (id_pers)
+    REFERENCES Persona (id_pers);
 
 ALTER TABLE Notificacion
   ADD CONSTRAINT FK_Compra_TO_Notificacion
     FOREIGN KEY (id_compra)
     REFERENCES Compra (id_compra);
-
-ALTER TABLE Prod_compra
-  ADD CONSTRAINT FK_Publicacion_TO_Prod_compra
-    FOREIGN KEY (id_pub)
-    REFERENCES Publicacion (id_pub);
-
-ALTER TABLE Prod_compra
-  ADD CONSTRAINT FK_Compra_TO_Prod_compra
-    FOREIGN KEY (id_compra)
-    REFERENCES Compra (id_compra);
-
-ALTER TABLE Ben_Per
-  ADD CONSTRAINT FK_Persona_TO_Ben_Per
-    FOREIGN KEY (id_pers)
-    REFERENCES Persona (id_pers);
-
-ALTER TABLE Ben_Per
-  ADD CONSTRAINT FK_Beneficio_TO_Ben_Per
-    FOREIGN KEY (id_benef)
-    REFERENCES Beneficio (id_benef);
