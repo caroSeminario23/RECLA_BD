@@ -2,15 +2,15 @@
   "$schema": "https://raw.githubusercontent.com/dineug/erd-editor/main/json-schema/schema.json",
   "version": "3.0.0",
   "settings": {
-    "width": 4000,
-    "height": 4000,
-    "scrollTop": -944.4693,
-    "scrollLeft": -380.2779,
-    "zoomLevel": 0.79,
+    "width": 2000,
+    "height": 2000,
+    "scrollTop": 0,
+    "scrollLeft": -34,
+    "zoomLevel": 1,
     "show": 511,
     "database": 16,
-    "databaseName": "RECLA_BD",
-    "canvasType": "ERD",
+    "databaseName": "RECLA_BD_1",
+    "canvasType": "@dineug/erd-editor/builtin-schema-sql",
     "language": 1,
     "tableNameCase": 4,
     "columnNameCase": 2,
@@ -34,67 +34,14 @@
       "0p87ml-A9dZ5MFZyAVx6c",
       "oeafp8XW2qbUOrDYxqTzO",
       "tSd2fcony22V2-XNbk96c",
-      "rePr8AmfsJQuWJEKiUY2E",
-      "sLjZYSouadOTiBKr-NZ9X",
       "es7YPOlCcE-v0mNR2swic",
-      "ndXCmP0OmIi2uvvv_CBRT",
-      "dL3m5OopDFwJ341T54DZI",
-      "j8MX6pIz3rBDWS0-q3OAd",
-      "6otwafsZgwc_XQ4ewjXDR",
-      "EDqnks9bxz8_3k2zOYJOd",
-      "GobI7b7-Zp-n55p4NDe1i",
-      "xuUAL_HlGgZqAf6m7f5A0",
-      "RGccd-8DilkeoGrdZR3ou",
-      "emyP1ZjxWy0Q584SAg2vS",
-      "EgYbQ832gGeCPJsBPu09X",
-      "yxXQBlAgyeIngOjto4Q8l",
-      "WKQ_Hj0xModebDUQYiBuk",
-      "3pG8ATfHCr0pHgFOL0N0f",
-      "IU7_sY1KTW4aRjpd0TDIQ",
-      "XynphvT8tBezNoWxosqW6",
-      "Md_M132yGAajw4Mks-ITy",
-      "shPIzvHpddhlZf5tk10Fm",
-      "cUe4AAKjTWIUwtaJSdv3x",
-      "NLYltC3dVATuRaezV5nAY",
-      "5eytos_H2omtdQtn-BMmS",
-      "3ykZucM4UV_R5AvNbjI1W",
-      "oxTb_Lu7XGzZrIp4o0EiG",
-      "9ktDbCMnWVAEHLiU8lJ-e"
+      "3pG8ATfHCr0pHgFOL0N0f"
     ],
     "relationshipIds": [
       "mVTzD8vzUjjZBekKrNXSZ",
       "r5gBFQi9O_w7gZkJTqy1E",
       "A44JQi27puu7v-R8V6Gj6",
-      "d1bp4gm282dy0m04AtDdb",
-      "Ac4Cxmvnx8PiV4rptjb9C",
-      "0og4oLD5twaZZm5LSJ6u8",
-      "lxJ54_8bo4OPc3LZN6Qk1",
-      "VtTf8pT8-JH4Q-o7FEsKq",
-      "-kQQ6jR-wYuAdaPCKpxNs",
-      "ORvZKHJJMrG5dILVHhJef",
-      "AQBz60GoFrZ4AxaVTbfSs",
-      "LUfzWJU803Zb7EnSy9uJ_",
-      "OnSuWMBDXMQpasBZ70UiF",
-      "2fmycQumBaqbtXqmHmDhf",
-      "-zfP5RdKRLpvLV-miRqPy",
-      "lf-3_xY9nNz-Xat9JZLt4",
-      "dyfl7mg8KYxTf1P4x1I50",
-      "qK0WDU9XzMm4BAweEFYM9",
-      "DEThZRUsnr3SBnthJrXkH",
-      "Dg9O-KxZWKbT5P-TTEAZV",
-      "rZYpAidyuAtbyYHCHkr-D",
-      "EtaP0tqL3mfyrBBavhoeX",
-      "45F7kBSGQANeE2zUIPTIB",
-      "e8ysdtZ5MMds6pd-IuJ8i",
-      "2BetOY2gu7sidxm8gylYl",
-      "iCnwzDcrUffhdRkaX3eHa",
-      "SfNbJKpK3LqrnG0ceVbf3",
-      "VQ5SyDVM7P9FjrbE5Eg-R",
-      "t1A5C0fGuLFD9SEwuJGYJ",
-      "J1b5veP-sPqNO3F2Z-_Lx",
-      "2T3mBFCow-SojuPHk69ed",
-      "tGKfPLvrTZ-HA63QGkHhs",
-      "foeTFySJOmGwKe3IPBwt1"
+      "qK0WDU9XzMm4BAweEFYM9"
     ],
     "indexIds": [],
     "memoIds": []
@@ -103,7 +50,7 @@
     "tableEntities": {
       "0p87ml-A9dZ5MFZyAVx6c": {
         "id": "0p87ml-A9dZ5MFZyAVx6c",
-        "name": "Persona",
+        "name": "Eco_aprendiz",
         "comment": "",
         "columnIds": [
           "0fzN6Okwh4yEyAskFaSoq",
@@ -127,15 +74,15 @@
           "sQO9_X1R6g66pUEqZhkGV"
         ],
         "ui": {
-          "x": 1377.3745,
-          "y": 859.826,
+          "x": 98.0642,
+          "y": 311.55,
           "zIndex": 2,
-          "widthName": 60,
+          "widthName": 71,
           "widthComment": 60,
           "color": ""
         },
         "meta": {
-          "updateAt": 1746461940427,
+          "updateAt": 1747621698160,
           "createAt": 1745800407321
         }
       },
@@ -156,21 +103,21 @@
           "92ZwJZBdLbNdHHu-1Ch7v"
         ],
         "ui": {
-          "x": 2104.6605,
-          "y": 624.0827,
+          "x": 697.7638,
+          "y": 55.1172,
           "zIndex": 16,
           "widthName": 60,
           "widthComment": 60,
           "color": ""
         },
         "meta": {
-          "updateAt": 1746462004081,
+          "updateAt": 1747621646721,
           "createAt": 1745800549342
         }
       },
       "tSd2fcony22V2-XNbk96c": {
         "id": "tSd2fcony22V2-XNbk96c",
-        "name": "Institucion",
+        "name": "Aliado_verde",
         "comment": "",
         "columnIds": [
           "ubuDzYFI0HGSeaXq_hVgt",
@@ -185,15 +132,15 @@
           "zke_PWGkUQkZrfkgzCuA-"
         ],
         "ui": {
-          "x": 2659.2506,
-          "y": 799.022,
+          "x": 779.9403,
+          "y": 340.4012,
           "zIndex": 48,
-          "widthName": 60,
+          "widthName": 70,
           "widthComment": 60,
           "color": ""
         },
         "meta": {
-          "updateAt": 1746462034792,
+          "updateAt": 1747621710410,
           "createAt": 1745800744659
         }
       },
@@ -274,15 +221,15 @@
           "yk43liXqXkGxTmM_RL_Ct"
         ],
         "ui": {
-          "x": 2054.4782,
-          "y": 483.6087,
+          "x": 68.6424,
+          "y": 77.2577,
           "zIndex": 129,
           "widthName": 60,
           "widthComment": 60,
           "color": ""
         },
         "meta": {
-          "updateAt": 1745935094693,
+          "updateAt": 1747621644947,
           "createAt": 1745801482936
         }
       },
@@ -676,15 +623,15 @@
           "mlrk05iiKgUsjoICM_NNu"
         ],
         "ui": {
-          "x": 1178.8916,
-          "y": 1267.1025,
+          "x": 715.0986,
+          "y": 587.792,
           "zIndex": 741,
           "widthName": 60,
           "widthComment": 60,
           "color": ""
         },
         "meta": {
-          "updateAt": 1746463891206,
+          "updateAt": 1747621652229,
           "createAt": 1746415347530
         }
       },
@@ -992,20 +939,20 @@
       "0fzN6Okwh4yEyAskFaSoq": {
         "id": "0fzN6Okwh4yEyAskFaSoq",
         "tableId": "0p87ml-A9dZ5MFZyAVx6c",
-        "name": "id_pers",
+        "name": "id_aprendiz",
         "comment": "",
         "dataType": "int",
         "default": "",
         "options": 11,
         "ui": {
           "keys": 1,
-          "widthName": 60,
+          "widthName": 63,
           "widthComment": 60,
           "widthDataType": 60,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1745801418683,
+          "updateAt": 1747621739446,
           "createAt": 1745800430662
         }
       },
@@ -1052,7 +999,7 @@
       "f2XZ9e1-slsJX7w0v_fg9": {
         "id": "f2XZ9e1-slsJX7w0v_fg9",
         "tableId": "0p87ml-A9dZ5MFZyAVx6c",
-        "name": "anio_nac",
+        "name": "fec_nac",
         "comment": "",
         "dataType": "date",
         "default": "",
@@ -1065,7 +1012,7 @@
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1745901532821,
+          "updateAt": 1747621715463,
           "createAt": 1745800486770
         }
       },
@@ -1172,7 +1119,7 @@
       "ubuDzYFI0HGSeaXq_hVgt": {
         "id": "ubuDzYFI0HGSeaXq_hVgt",
         "tableId": "tSd2fcony22V2-XNbk96c",
-        "name": "id_inst",
+        "name": "id_aliado",
         "comment": "",
         "dataType": "int",
         "default": "",
@@ -1185,7 +1132,7 @@
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1745901682445,
+          "updateAt": 1747621736487,
           "createAt": 1745800760161
         }
       },
@@ -1738,7 +1685,7 @@
         "default": "",
         "options": 10,
         "ui": {
-          "keys": 3,
+          "keys": 1,
           "widthName": 60,
           "widthComment": 60,
           "widthDataType": 60,
@@ -1758,7 +1705,7 @@
         "default": "",
         "options": 10,
         "ui": {
-          "keys": 3,
+          "keys": 1,
           "widthName": 60,
           "widthComment": 60,
           "widthDataType": 60,
@@ -1778,7 +1725,7 @@
         "default": "",
         "options": 8,
         "ui": {
-          "keys": 2,
+          "keys": 0,
           "widthName": 60,
           "widthComment": 60,
           "widthDataType": 60,
@@ -1838,7 +1785,7 @@
         "default": "",
         "options": 8,
         "ui": {
-          "keys": 2,
+          "keys": 0,
           "widthName": 60,
           "widthComment": 60,
           "widthDataType": 60,
@@ -1858,7 +1805,7 @@
         "default": "",
         "options": 8,
         "ui": {
-          "keys": 2,
+          "keys": 0,
           "widthName": 60,
           "widthComment": 60,
           "widthDataType": 60,
@@ -2038,7 +1985,7 @@
         "default": "",
         "options": 8,
         "ui": {
-          "keys": 2,
+          "keys": 0,
           "widthName": 60,
           "widthComment": 60,
           "widthDataType": 60,
@@ -2098,7 +2045,7 @@
         "default": "",
         "options": 8,
         "ui": {
-          "keys": 2,
+          "keys": 0,
           "widthName": 75,
           "widthComment": 60,
           "widthDataType": 60,
@@ -2658,7 +2605,7 @@
         "default": "",
         "options": 8,
         "ui": {
-          "keys": 2,
+          "keys": 0,
           "widthName": 60,
           "widthComment": 60,
           "widthDataType": 60,
@@ -2678,7 +2625,7 @@
         "default": "",
         "options": 10,
         "ui": {
-          "keys": 3,
+          "keys": 1,
           "widthName": 60,
           "widthComment": 60,
           "widthDataType": 60,
@@ -2698,7 +2645,7 @@
         "default": "",
         "options": 10,
         "ui": {
-          "keys": 3,
+          "keys": 1,
           "widthName": 60,
           "widthComment": 60,
           "widthDataType": 60,
@@ -2718,7 +2665,7 @@
         "default": "",
         "options": 8,
         "ui": {
-          "keys": 2,
+          "keys": 0,
           "widthName": 60,
           "widthComment": 60,
           "widthDataType": 60,
@@ -2738,7 +2685,7 @@
         "default": "",
         "options": 8,
         "ui": {
-          "keys": 2,
+          "keys": 0,
           "widthName": 60,
           "widthComment": 60,
           "widthDataType": 60,
@@ -2758,7 +2705,7 @@
         "default": "",
         "options": 8,
         "ui": {
-          "keys": 2,
+          "keys": 0,
           "widthName": 60,
           "widthComment": 60,
           "widthDataType": 60,
@@ -2798,7 +2745,7 @@
         "default": "",
         "options": 8,
         "ui": {
-          "keys": 2,
+          "keys": 0,
           "widthName": 60,
           "widthComment": 60,
           "widthDataType": 60,
@@ -3018,7 +2965,7 @@
         "default": "",
         "options": 8,
         "ui": {
-          "keys": 2,
+          "keys": 0,
           "widthName": 60,
           "widthComment": 60,
           "widthDataType": 60,
@@ -3138,7 +3085,7 @@
         "default": "",
         "options": 8,
         "ui": {
-          "keys": 2,
+          "keys": 0,
           "widthName": 60,
           "widthComment": 60,
           "widthDataType": 60,
@@ -3278,7 +3225,7 @@
         "default": "",
         "options": 8,
         "ui": {
-          "keys": 2,
+          "keys": 0,
           "widthName": 60,
           "widthComment": 60,
           "widthDataType": 60,
@@ -3398,7 +3345,7 @@
         "default": "",
         "options": 8,
         "ui": {
-          "keys": 2,
+          "keys": 0,
           "widthName": 60,
           "widthComment": 60,
           "widthDataType": 60,
@@ -3418,7 +3365,7 @@
         "default": "",
         "options": 8,
         "ui": {
-          "keys": 2,
+          "keys": 0,
           "widthName": 60,
           "widthComment": 60,
           "widthDataType": 60,
@@ -3438,7 +3385,7 @@
         "default": "",
         "options": 8,
         "ui": {
-          "keys": 2,
+          "keys": 0,
           "widthName": 60,
           "widthComment": 60,
           "widthDataType": 60,
@@ -3478,7 +3425,7 @@
         "default": "",
         "options": 8,
         "ui": {
-          "keys": 2,
+          "keys": 0,
           "widthName": 60,
           "widthComment": 60,
           "widthDataType": 60,
@@ -3498,7 +3445,7 @@
         "default": "",
         "options": 8,
         "ui": {
-          "keys": 2,
+          "keys": 0,
           "widthName": 60,
           "widthComment": 60,
           "widthDataType": 60,
@@ -3618,7 +3565,7 @@
         "default": "",
         "options": 8,
         "ui": {
-          "keys": 2,
+          "keys": 0,
           "widthName": 60,
           "widthComment": 60,
           "widthDataType": 60,
@@ -3638,7 +3585,7 @@
         "default": "",
         "options": 8,
         "ui": {
-          "keys": 2,
+          "keys": 0,
           "widthName": 60,
           "widthComment": 60,
           "widthDataType": 60,
@@ -3778,7 +3725,7 @@
         "default": "",
         "options": 8,
         "ui": {
-          "keys": 2,
+          "keys": 0,
           "widthName": 60,
           "widthComment": 60,
           "widthDataType": 60,
@@ -3958,7 +3905,7 @@
         "default": "",
         "options": 8,
         "ui": {
-          "keys": 2,
+          "keys": 0,
           "widthName": 60,
           "widthComment": 60,
           "widthDataType": 60,
@@ -3978,7 +3925,7 @@
         "default": "",
         "options": 10,
         "ui": {
-          "keys": 3,
+          "keys": 1,
           "widthName": 60,
           "widthComment": 60,
           "widthDataType": 60,
@@ -3998,7 +3945,7 @@
         "default": "",
         "options": 10,
         "ui": {
-          "keys": 3,
+          "keys": 1,
           "widthName": 60,
           "widthComment": 60,
           "widthDataType": 60,
@@ -4138,7 +4085,7 @@
         "default": "",
         "options": 8,
         "ui": {
-          "keys": 2,
+          "keys": 0,
           "widthName": 60,
           "widthComment": 60,
           "widthDataType": 60,
@@ -4161,18 +4108,18 @@
           "columnIds": [
             "mm40oPj8OQp631pLIZY1z"
           ],
-          "x": 2054.4782,
-          "y": 535.6087,
-          "direction": 1
+          "x": 278.1424,
+          "y": 181.2577,
+          "direction": 8
         },
         "end": {
           "tableId": "0p87ml-A9dZ5MFZyAVx6c",
           "columnIds": [
             "sQO9_X1R6g66pUEqZhkGV"
           ],
-          "x": 1802.3745,
-          "y": 887.826,
-          "direction": 2
+          "x": 312.0642,
+          "y": 311.55,
+          "direction": 4
         },
         "meta": {
           "updateAt": 1745801668316,
@@ -4189,8 +4136,8 @@
           "columnIds": [
             "mTLGTW2vJakh_f6zlPzBh"
           ],
-          "x": 2104.6605,
-          "y": 700.0827,
+          "x": 697.7638,
+          "y": 131.1172,
           "direction": 1
         },
         "end": {
@@ -4198,8 +4145,8 @@
           "columnIds": [
             "vnAfh_K95qF4kHhxzPg63"
           ],
-          "x": 1802.3745,
-          "y": 943.826,
+          "x": 526.0642,
+          "y": 367.55,
           "direction": 2
         },
         "meta": {
@@ -4217,18 +4164,18 @@
           "columnIds": [
             "mTLGTW2vJakh_f6zlPzBh"
           ],
-          "x": 2529.6605,
-          "y": 700.0827,
-          "direction": 2
+          "x": 910.2638,
+          "y": 207.1172,
+          "direction": 8
         },
         "end": {
           "tableId": "tSd2fcony22V2-XNbk96c",
           "columnIds": [
             "Unkqu3IzCUwN-2-CyiHTr"
           ],
-          "x": 2659.2506,
-          "y": 837.022,
-          "direction": 1
+          "x": 989.4403,
+          "y": 340.4012,
+          "direction": 4
         },
         "meta": {
           "updateAt": 1746462123058,
@@ -4386,7 +4333,7 @@
             "wCQ9l0bmSywWR5jY8kRDB"
           ],
           "x": 2486.162,
-          "y": 1319.2422,
+          "y": 1269.2422,
           "direction": 1
         },
         "end": {
@@ -4637,18 +4584,18 @@
           "columnIds": [
             "0fzN6Okwh4yEyAskFaSoq"
           ],
-          "x": 1483.6245,
-          "y": 1083.826,
-          "direction": 8
+          "x": 526.0642,
+          "y": 479.55,
+          "direction": 2
         },
         "end": {
           "tableId": "3pG8ATfHCr0pHgFOL0N0f",
           "columnIds": [
             "bqMsE84-NJ7pEKkz-QdxP"
           ],
-          "x": 1596.8916,
-          "y": 1331.1025,
-          "direction": 2
+          "x": 715.0986,
+          "y": 651.792,
+          "direction": 1
         },
         "meta": {
           "updateAt": 1746415387417,
@@ -4666,7 +4613,7 @@
             "ccxTce5fZ436Z-tI2jRkm"
           ],
           "x": 601.7551,
-          "y": 1238.173,
+          "y": 1200.173,
           "direction": 2
         },
         "end": {
