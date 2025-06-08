@@ -4,9 +4,9 @@
   "settings": {
     "width": 4000,
     "height": 4000,
-    "scrollTop": -1134.7797,
-    "scrollLeft": -1781.1264,
-    "zoomLevel": 0.64,
+    "scrollTop": -464.9184,
+    "scrollLeft": -1528.3978,
+    "zoomLevel": 1,
     "show": 511,
     "database": 16,
     "databaseName": "RECLA_BD",
@@ -1753,8 +1753,8 @@
       "Vpk_pnKzHXBW2v3-XDTxt": {
         "id": "Vpk_pnKzHXBW2v3-XDTxt",
         "tableId": "rePr8AmfsJQuWJEKiUY2E",
-        "name": "estado",
-        "comment": "0: disponible, 1: comprado",
+        "name": "disponible",
+        "comment": "1: disponible, 0: comprado",
         "dataType": "boolean",
         "default": "",
         "options": 8,
@@ -1766,7 +1766,7 @@
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1745923927015,
+          "updateAt": 1749358833524,
           "createAt": 1745923857348
         }
       },
@@ -1775,18 +1775,18 @@
         "tableId": "rePr8AmfsJQuWJEKiUY2E",
         "name": "precio",
         "comment": "sol peruano",
-        "dataType": "money",
+        "dataType": "numeric(5,2)",
         "default": "",
         "options": 8,
         "ui": {
           "keys": 0,
           "widthName": 60,
           "widthComment": 65,
-          "widthDataType": 60,
+          "widthDataType": 68,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1749358166108,
+          "updateAt": 1749358870329,
           "createAt": 1745923972642
         }
       },
@@ -1873,20 +1873,20 @@
       "0KLMeDZg1vpkYa6Zf1w4O": {
         "id": "0KLMeDZg1vpkYa6Zf1w4O",
         "tableId": "WKQ_Hj0xModebDUQYiBuk",
-        "name": "id_pers",
+        "name": "id_aprendiz",
         "comment": "",
         "dataType": "int",
         "default": "",
         "options": 8,
         "ui": {
           "keys": 2,
-          "widthName": 60,
+          "widthName": 63,
           "widthComment": 60,
           "widthDataType": 60,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1746414071416,
+          "updateAt": 1749358699324,
           "createAt": 1746414071415
         }
       },
@@ -2513,20 +2513,20 @@
       "QHFH75ccW7rtwTmHtdxoJ": {
         "id": "QHFH75ccW7rtwTmHtdxoJ",
         "tableId": "0p87ml-A9dZ5MFZyAVx6c",
-        "name": "vendedor",
+        "name": "es_vendedor",
         "comment": "0: no, 1: sí",
         "dataType": "boolean",
         "default": "0",
         "options": 8,
         "ui": {
           "keys": 0,
-          "widthName": 60,
+          "widthName": 69,
           "widthComment": 60,
           "widthDataType": 60,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1748967677139,
+          "updateAt": 1749358778791,
           "createAt": 1748967645589
         }
       },
@@ -4071,7 +4071,7 @@
           "columnIds": [
             "sQO9_X1R6g66pUEqZhkGV"
           ],
-          "x": 2484.5814,
+          "x": 2489.0814,
           "y": 989.1363,
           "direction": 4
         },
@@ -4099,7 +4099,7 @@
           "columnIds": [
             "vnAfh_K95qF4kHhxzPg63"
           ],
-          "x": 2270.5814,
+          "x": 2272.0814,
           "y": 989.1363,
           "direction": 4
         },
@@ -4183,7 +4183,7 @@
           "columnIds": [
             "TBUKYjh19GD_uYmNbzD9-"
           ],
-          "x": 1951.4507,
+          "x": 1952.4507,
           "y": 1049.2973,
           "direction": 2
         },
@@ -4230,7 +4230,7 @@
           "columnIds": [
             "zbMgSkl9oxebpDbYM-Y2C"
           ],
-          "x": 1696.4507,
+          "x": 1696.9507,
           "y": 1185.2973,
           "direction": 8
         },
@@ -4258,7 +4258,7 @@
           "columnIds": [
             "0fzN6Okwh4yEyAskFaSoq"
           ],
-          "x": 2591.5814,
+          "x": 2597.5814,
           "y": 1091.1363000000001,
           "direction": 2
         },
@@ -4370,7 +4370,7 @@
           "columnIds": [
             "0fzN6Okwh4yEyAskFaSoq"
           ],
-          "x": 2591.5814,
+          "x": 2597.5814,
           "y": 1023.1363,
           "direction": 2
         },
@@ -4398,7 +4398,7 @@
           "columnIds": [
             "0fzN6Okwh4yEyAskFaSoq"
           ],
-          "x": 2591.5814,
+          "x": 2597.5814,
           "y": 1159.1363000000001,
           "direction": 2
         },
@@ -4538,7 +4538,7 @@
           "columnIds": [
             "0fzN6Okwh4yEyAskFaSoq"
           ],
-          "x": 2270.5814,
+          "x": 2272.0814,
           "y": 1261.1363000000001,
           "direction": 8
         },
@@ -4594,7 +4594,7 @@
           "columnIds": [
             "0fzN6Okwh4yEyAskFaSoq"
           ],
-          "x": 2484.5814,
+          "x": 2489.0814,
           "y": 1261.1363000000001,
           "direction": 8
         },
@@ -4762,7 +4762,7 @@
           "columnIds": [
             "0fzN6Okwh4yEyAskFaSoq"
           ],
-          "x": 2591.5814,
+          "x": 2597.5814,
           "y": 1227.1363000000001,
           "direction": 2
         },
