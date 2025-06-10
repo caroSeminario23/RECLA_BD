@@ -227,13 +227,11 @@ CREATE TABLE Tabla_puntos
   id_aprendiz int NOT NULL,
   ptos_exp    int NOT NULL DEFAULT 0,
   ptos_app    int NOT NULL DEFAULT 0,
-  ptos_mision int NOT NULL DEFAULT 0,
   ptos_compra int NOT NULL DEFAULT 0,
   ptos_venta  int NOT NULL DEFAULT 0,
   PRIMARY KEY (id_tp),
   CHECK (ptos_exp >=0),
   CHECK (ptos_app >=0),
-  CHECK (ptos_mision >=0),
   CHECK (ptos_compra >=0),
   CHECK (ptos_venta >=0)
 );
